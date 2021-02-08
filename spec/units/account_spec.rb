@@ -20,7 +20,7 @@ describe Account do
   end
 
   describe '#print_statement' do
-    it 'prints transactions in reverse chronology with appropriate headings' do
+    it 'prints transactions in reverse order with appropriate headings' do
       allow(transaction_class_double).to receive(:new) { deposit_double }
       subject.deposit(DEPOSIT_AMOUNT, time1)
       allow(transaction_class_double).to receive(:new) { withdrawal_double }

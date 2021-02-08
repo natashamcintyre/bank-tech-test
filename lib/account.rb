@@ -23,30 +23,30 @@ class Account
 
   def print_statement
     @statement = ''
-    @transactions.each { |transaction| print_transaction(transaction) }
-    print_headings
+    @transactions.each { |transaction| prepare_for_printing(transaction) }
+    prepare_headings_for_printing
     puts @statement
   end
 
   private
 
-  def print_headings
+  def prepare_headings_for_printing
     @statement.insert(0, "date || credit || debit || balance\n")
   end
 
-  def print_transaction(transaction)
+  def prepare_for_printing(transaction)
     date = format_date(transaction.date)
     amount = format('%.2f', transaction.amount)
-    cumulative_balance = format('%.2f', balance_to_date(transaction))
+    balance_after_transaction = format('%.2f', cumulative_balance(transaction))
     row = if transaction.deposit?
-            "#{date} || #{amount} || || #{cumulative_balance}\n"
+            "#{date} || #{amount} || || #{balance_after_transaction}\n"
           else
-            "#{date} || || #{amount} || #{cumulative_balance}\n"
+            "#{date} || || #{amount} || #{balance_after_transaction}\n"
           end
     @statement.insert(0, row)
   end
 
-  def balance_to_date(transaction)
+  def cumulative_balance(transaction)
     if transaction.deposit?
       @statement_balance += transaction.amount
     else
