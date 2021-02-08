@@ -1,3 +1,38 @@
+# A Basic Account App #
+
+**Installation:**\
+Clone this repository and then run
+```
+cd bank-tech-test
+bundle install
+```
+
+**Testing:**\
+```
+rspec
+```
+
+**Usage:**\
+For use in the console, eg irb. In the directory bank-tech-test:
+```
+[bank-tech-test]$ irb -r './lib/account.rb'
+2.7.0 :001 > my_account = Account.new
+```
+Make deposits and withdrawals using .deposit(amount, date) or .withdraw(amount, date)
+```
+2.7.0 :002 > my_account.deposit(500, Time.new(2021, 1, 27))
+2.7.0 :003 > my_account.withdraw(100, Time.new(2021, 2, 11))
+```
+At any point, print your statement by running the following:
+```
+my_account.print_statement
+```
+
+![IRB screenshot](/images/Bank-Tech-Test-example.png)
+
+**Note**
+The statement prints as required in the spec below.
+
 ## Specification
 
 ### Requirements
@@ -30,6 +65,7 @@ date || credit || debit || balance
 Self-assessment
 Once you have completed the challenge and feel happy with your solution, here's a form to help you reflect on the quality of your code: https://docs.google.com/forms/d/1Q-NnqVObbGLDHxlvbUfeAC7yBCf3eCjTmz6GOqC9Aeo/edit
 
+## My Approach ##
 ### User Story broken down:
 Client has an account: *my_account = Account.new*
 
