@@ -1,3 +1,4 @@
+# Transaction responsible for knowing its amount, date and type (deposit or withdrawal)
 class Transaction
   attr_reader :date, :amount
 
@@ -7,12 +8,7 @@ class Transaction
     @type = type
   end
 
-  def is_withdrawal?
-    @type == 'withdrawal'
-  end
-
-  def is_deposit?
+  def deposit?
     @type == 'deposit'
   end
-
 end

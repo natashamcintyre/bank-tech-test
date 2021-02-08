@@ -1,12 +1,13 @@
-require_relative './transaction.rb'
+require_relative './transaction'
 
+# Account class responsible for storing account transactions
 class Account
   attr_reader :balance, :transactions
 
   def initialize(transaction_class: Transaction)
     @statement_balance = 0
     @transactions = []
-    @statement = ""
+    @statement = ''
     @transaction_class = transaction_class
   end
 
@@ -21,9 +22,10 @@ class Account
   end
 
   def print_statement
+    @statement = ''
     @transactions.each { |transaction| print_transaction(transaction) }
     print_headings
-    puts statement
+    puts @statement
   end
 
   private
@@ -33,15 +35,19 @@ class Account
   end
 
   def print_transaction(transaction)
-    if transaction.is_deposit?
-      @statement.insert(0, "#{format_date(transaction.date)} || #{format_money(transaction.amount)} || || #{format_money(balance_to_date(transaction))}\n")
-    else
-      @statement.insert(0, "#{format_date(transaction.date)} || || #{format_money(transaction.amount)} || #{format_money(balance_to_date(transaction))}\n")
-    end
+    date = format_date(transaction.date)
+    amount = format('%.2f', transaction.amount)
+    cumulative_balance = format('%.2f', balance_to_date(transaction))
+    row = if transaction.deposit?
+            "#{date} || #{amount} || || #{cumulative_balance}\n"
+          else
+            "#{date} || || #{amount} || #{cumulative_balance}\n"
+          end
+    @statement.insert(0, row)
   end
 
   def balance_to_date(transaction)
-    if transaction.is_deposit?
+    if transaction.deposit?
       @statement_balance += transaction.amount
     else
       @statement_balance -= transaction.amount
@@ -49,15 +55,6 @@ class Account
   end
 
   def format_date(date)
-    date.strftime("%d/%m/%Y")
+    date.strftime('%d/%m/%Y')
   end
-
-  def format_money(amount)
-    sprintf("%0.2f", amount)
-  end
-
-  def statement
-    @statement
-  end
-
 end
