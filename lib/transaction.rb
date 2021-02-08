@@ -15,9 +15,4 @@ class Transaction
     @type == 'deposit'
   end
 
-  private
-
-  def type
-    @type
-  end
 end
