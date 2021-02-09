@@ -112,10 +112,13 @@ Hit a problem with printing the balance for each transaction. I have a few optio
 
 Which one is best? Speed? Probably not too big a factor at this scale. Encapsulation? Code style is important. Readability and adaptability needs to be good. Will try the last one because it feels more secure.
 
-## After initial review ##
+## After initial self assessment ##
 
 ToDo: Refactor out statement class. Calculate balances here. Consider using hash?
 
 Class | Statement
-Properties | headings, rows?
-Actions | view
+-|-
+Properties | all_transactions
+Actions | display, prepare_headers, prepare_transaction_row, format_date
+
+This took a lot of reformatting, but I feel I have got there in the end. The only bit I'm unsure about is the prepare_transaction_row method, which I think there may be a nicer way to go about. Perhaps converting each transaction into an array and using .join(" || "), or using a hash somehow?
