@@ -111,3 +111,11 @@ Hit a problem with printing the balance for each transaction. I have a few optio
   - con: makes the printing method more hefty?
 
 Which one is best? Speed? Probably not too big a factor at this scale. Encapsulation? Code style is important. Readability and adaptability needs to be good. Will try the last one because it feels more secure.
+
+## After initial review ##
+
+ToDo: Refactor out statement class. Calculate balances here. Consider using hash?
+
+Class | Statement
+Properties | headings, rows?
+Actions | view
