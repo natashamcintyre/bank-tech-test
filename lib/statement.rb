@@ -2,13 +2,10 @@
 
 # This class is responsible for generating the statement
 class Statement
-  def initialize(all_transactions)
-    @all_transactions = all_transactions
-  end
 
-  def display
+  def display(transactions)
     statement = prepare_headers
-    @all_transactions.reverse.each do |details|
+    transactions.reverse.each do |details|
       statement += prepare_transaction_row(details)
     end
     statement
@@ -23,8 +20,8 @@ class Statement
   def prepare_transaction_row(details)
     transaction = details[:transaction]
     date_text = "#{format_date(transaction.date)} || "
-    credit_or_debit_text = transaction.deposit? ? "#{transaction.amount}.00 ||" : "|| #{transaction.amount}.00"
-    balance_after_transaction_text = " || #{details[:balance_after_transaction]}.00\n"
+    credit_or_debit_text = transaction.deposit? ? "#{format('%0.2f', transaction.amount)} ||" : "|| #{format('%0.2f',transaction.amount)}"
+    balance_after_transaction_text = " || #{format('%0.2f', details[:balance_after_transaction])}\n"
     date_text + credit_or_debit_text + balance_after_transaction_text
   end
 

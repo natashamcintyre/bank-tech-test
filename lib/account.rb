@@ -14,26 +14,26 @@ class Account
     @statement_class = statement_class
   end
 
-  def withdraw(amount, date)
-    transaction = @transaction_class.new(amount: amount, date: date, type: 'withdrawal')
+  def withdraw(amount, date = Time.now)
+    transaction = @transaction_class.new(amount: amount, date: date, type: :withdrawal)
     add_transaction(transaction)
   end
 
-  def deposit(amount, date)
-    transaction = @transaction_class.new(amount: amount, date: date, type: 'deposit')
+  def deposit(amount, date = Time.now)
+    transaction = @transaction_class.new(amount: amount, date: date, type: :deposit)
     add_transaction(transaction)
   end
 
   def print_statement
-    statement = @statement_class.new(@transactions)
-    puts statement.display
+    statement = @statement_class.new
+    puts statement.display(@transactions)
   end
 
   private
 
   def add_transaction(transaction)
     update_balance(transaction)
-    @transactions << { transaction: transaction, balance: @balance }
+    @transactions << { transaction: transaction, balance_after_transaction: @balance }
   end
 
   def update_balance(transaction)
