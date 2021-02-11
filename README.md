@@ -55,7 +55,7 @@ date | credit | debit | balance
 13/01/2012 | 2000.00 || 3000.00
 10/01/2012 | 1000.00 || 1000.00
 
-Is this supposed to be a table? I have edited it above if so. Or is this the exact desired output? I'll go with this as I have no further info on this.
+Is this supposed to be a table? I have edited it above if so. Or is this the exact desired output? I'll go with the below as I have no further info on this.
 
 date || credit || debit || balance
 14/01/2012 || || 500.00 || 2500.00
@@ -134,7 +134,7 @@ This was a really good solution to the challenge! You’ve demonstrated a solid 
 **Object-oriented design**
 - You’ve nicely separated the concerns of printing statements, keeping a transaction history and managing deposits and withdrawals from each other.
 - Your code is also well encapsulated -- things that need to be private are.
-- You’ve opted to have the user specify the transaction dates. Arguably this is a bit dangerous -- what if they doctor it? *I had considered this but incorrectly concluded that this was beyond the spec of the task. Now updated so that it is an optional argument should it need amending for any particular reason - this may still be a security issue (depending on how client intends to use app) and may need to be removed*
+- You’ve opted to have the user specify the transaction dates. Arguably this is a bit dangerous -- what if they doctor it? *I had considered this but incorrectly concluded that this was beyond the spec of the task (without writing that in my readme!). Now updated so that it is an optional argument should it need amending for any particular reason - this may still be a security issue (depending on how client intends to use app) and may need to be removed*
 **Testing**
 - Good job on getting 100% coverage and you’ve shown good use of mocking to isolate your unit tests!
 - Consider testing some edge cases -- what if the balance becomes negative? Or what if someone deposits an amount with decimal numbers? *I misunderstood the aim of the task and was trying to duplicate the exact input as shown in the spec. Now implemented both decimals and negatives in tests*

@@ -23,5 +23,4 @@ end
 RSpec.shared_context 'statement_doubles', { shared_context: :metadata } do
   let(:statement_dbl) { double :statement, display: DESIRED_OUTPUT }
   let(:statement_class_dbl) { double :statement_class, new: statement_dbl }
-  subject { Account.new(transaction_class: transaction_class_dbl, statement_class: statement_class_dbl) }
 end
