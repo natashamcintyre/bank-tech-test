@@ -138,8 +138,9 @@ This was a really good solution to the challenge! You’ve demonstrated a solid 
 **Testing**
 - Good job on getting 100% coverage and you’ve shown good use of mocking to isolate your unit tests!
 - Consider testing some edge cases -- what if the balance becomes negative? Or what if someone deposits an amount with decimal numbers? *I misunderstood the aim of the task and was trying to duplicate the exact input as shown in the spec. Now implemented both decimals and negatives in tests*
-- You’re missing a feature test that shows that all of your classes work together *I think this is now implemented although I would like to clarify structure of this with coach*
-- One could argue that by directly inspecting Account.transactions in your test, you’re testing state rather than behaviour. *I now have a question about this. If I remove these two tests, I still get 100% coverage, presumably because they are tested within the print_statement and feature tests? Does this imply these could/should be private methods? But they need to be called from outside class so can't be private. This is actaully also happening if I remove the #deposit? test from transaction_spec. I am clearly testing this twice too, but where, and what is the right approach to testing here?*
+- You’re missing a feature test that shows that all of your classes work together *I think this is now implemented although I would like to clarify structure of this with coach* *done:)*
+- One could argue that by directly inspecting Account.transactions in your test, you’re testing state rather than behaviour. *I now have a question about this. If I remove these two tests, I still get 100% coverage, presumably because they are tested within the print_statement and feature tests? Does this imply these could/should be private methods? But they need to be called from outside class so can't be private. This is actually also happening if I remove the #deposit? test from transaction_spec. I am clearly testing this twice too, but where, and what is the right approach to testing here?*\
+*Conclusion - 100% coverage should be for unit tests. Feature testing comes afterwards to check all classes are working together appropriately. Remember that SimpleCov isn't necessarily smart and 100% isn't everything - make sure the testing is meaningful and covers edge cases*
 **Minor:**
 - You could use symbols instead of strings for Transaction.type *done*
 - You could make your life a little easier in prepare_transaction_row by formatting numbers using format strings. Right now your solution only works for whole integer amounts. *done*
@@ -153,4 +154,9 @@ end
 ```
 *perhaps including a reason for why you have done this, as this communicates with other devs that this has been considered and justifies your reasoning.*
 
-The only blocker is the missing feature test. All other comments are nice to haves.  Once you’ve fixed that, feel free to resubmit for another coach review. And let me know if you have any questions about any of my comments, happy to chat.
+The only blocker is the missing feature test. All other comments are nice to haves.  Once you’ve fixed that, feel free to resubmit for another coach review. And let me know if you have any questions about any of my comments, happy to chat. *done*
+
+----------
+NEXT STEPS
+
+I am now looking into refactoring the Statement class as the way it processes the strings feels convoluted. My current thoughts are extracting the decision of whether the transaction is credit or debit to be the responsibility of the transaction class (perhaps it returns its details as a hash) which the Statement class can then format and 'stringify' (a technical term don't you know). Let's see if it works.

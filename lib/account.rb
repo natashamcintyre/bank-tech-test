@@ -33,7 +33,7 @@ class Account
 
   def add_transaction(transaction)
     update_balance(transaction)
-    @transactions << { transaction: transaction, balance_after_transaction: @balance }
+    @transactions << { transaction: transaction.to_h, balance: @balance }
   end
 
   def update_balance(transaction)

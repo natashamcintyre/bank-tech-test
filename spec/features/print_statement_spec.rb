@@ -23,7 +23,7 @@ describe 'a feature' do
     my_account.withdraw(50)
     desired_output = <<~STATEMENT
       date || credit || debit || balance
-      #{Time.now.strftime("%d/%m/%Y")} || || 50.00 || -24.01
+      #{Time.now.strftime('%d/%m/%Y')} || || 50.00 || -24.01
       02/01/2021 || 25.99 || || 25.99
     STATEMENT
     expect { my_account.print_statement }.to output(desired_output).to_stdout

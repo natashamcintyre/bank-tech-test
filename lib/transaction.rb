@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Transaction responsible for knowing its amount, date and type (deposit or withdrawal)
+# Transaction responsible for knowing its transaction type and turning its data into a hash
 class Transaction
   attr_reader :date, :amount
 
@@ -12,5 +12,11 @@ class Transaction
 
   def deposit?
     @type == :deposit
+  end
+
+  def to_h
+    hash = { date: @date, credit: '', debit: '' }
+    deposit? ? hash[:credit] = @amount : hash[:debit] = @amount
+    hash
   end
 end

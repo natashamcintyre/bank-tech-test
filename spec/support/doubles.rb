@@ -15,8 +15,14 @@ STATEMENT
 RSpec.shared_context 'transaction_doubles', { shared_context: :metadata } do
   let(:time1) { Time.new(YEAR, MON, DAY_1) }
   let(:time2) { Time.new(YEAR, MON, DAY_2) }
-  let(:deposit_dbl) { double :deposit, deposit?: true, amount: DEPOSIT_AMOUNT, date: time1 }
-  let(:withdrawal_dbl) { double :withdrawal, deposit?: false, amount: WITHDRAWAL_AMOUNT, date: time2 }
+  let(:deposit_hash) { { date: time1, credit: DEPOSIT_AMOUNT, debit: '' } }
+  let(:withdrawal_hash) { { date: time2, credit: '', debit: WITHDRAWAL_AMOUNT } }
+  let(:deposit_dbl) do
+    double :deposit, deposit?: true, amount: DEPOSIT_AMOUNT, date: time1, to_h: deposit_hash
+  end
+  let(:withdrawal_dbl) do
+    double :withdrawal, deposit?: false, amount: WITHDRAWAL_AMOUNT, date: time2, to_h: withdrawal_hash
+  end
   let(:transaction_class_dbl) { double :transaction_class }
 end
 
