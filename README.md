@@ -160,3 +160,5 @@ The only blocker is the missing feature test. All other comments are nice to hav
 NEXT STEPS
 
 I am now looking into refactoring the Statement class as the way it processes the strings feels convoluted. My current thoughts are extracting the decision of whether the transaction is credit or debit to be the responsibility of the transaction class (perhaps it returns its details as a hash) which the Statement class can then format and 'stringify' (a technical term don't you know). Let's see if it works.
+
+[Tech tests source](https://github.com/makersacademy/course/tree/master/individual_challenges)
