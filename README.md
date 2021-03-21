@@ -1,9 +1,9 @@
 <h1 align=center> A Basic Account App </h1>
 
-<h4 align=center> <a href="">Installation</a> | <a href="">Usage</a> | <a href="">Testing</a> </h4>
+<h4 align=center> <a href="https://github.com/natashamcintyre/bank-tech-test/blob/main/README.md#installation">Installation</a> | <a href="https://github.com/natashamcintyre/bank-tech-test/blob/main/README.md#usage">Usage</a> | <a href="https://github.com/natashamcintyre/bank-tech-test/blob/main/README.md#testing">Testing</a> </h4>
 
 
-**Installation:**
+## Installation
 
 Clone this repository and then run
 ```
@@ -11,13 +11,7 @@ cd bank-tech-test
 bundle install
 ```
 
-**Testing:**
-
-```
-rspec
-```
-
-**Usage:**
+## Usage
 For use in the console, eg irb. In the directory bank-tech-test:
 ```
 [bank-tech-test]$ irb -r './lib/account.rb'
@@ -36,7 +30,13 @@ my_account.print_statement
 ![IRB screenshot](/images/Bank-Tech-Test-example.png)
 
 **Note**
-The statement prints as required in the spec below.
+The statement prints as required in the [spec below](https://github.com/natashamcintyre/bank-tech-test/blob/main/README.md#acceptance-criteria).
+
+## Testing
+
+```
+rspec
+```
 
 ## Specification
 
@@ -47,7 +47,7 @@ The statement prints as required in the spec below.
 - Account statement (date, amount, balance) printing.
 - Data can be kept in memory (it doesn't need to be stored to a database or anything).
 
-### Acceptance criteria
+### Acceptance Criteria
 **Given** a client makes a deposit of 1000 on 10-01-2012
 And a deposit of 2000 on 13-01-2012
 And a withdrawal of 500 on 14-01-2012
