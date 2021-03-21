@@ -1,18 +1,23 @@
-# A Basic Account App #
+<h1 align=center> A Basic Account App </h1>
 
-**Installation:**\
+<h4 align=center> <a href="">Installation</a> | <a href="">Usage</a> | <a href="">Testing</a> </h4>
+
+
+**Installation:**
+
 Clone this repository and then run
 ```
 cd bank-tech-test
 bundle install
 ```
 
-**Testing:**\
+**Testing:**
+
 ```
 rspec
 ```
 
-**Usage:**\
+**Usage:**
 For use in the console, eg irb. In the directory bank-tech-test:
 ```
 [bank-tech-test]$ irb -r './lib/account.rb'
@@ -48,14 +53,6 @@ And a deposit of 2000 on 13-01-2012
 And a withdrawal of 500 on 14-01-2012
 **When** she prints her bank statement
 **Then** she would see
-
-date | credit | debit | balance
--|-|-|-
-14/01/2012 | | 500.00 | 2500.00
-13/01/2012 | 2000.00 || 3000.00
-10/01/2012 | 1000.00 || 1000.00
-
-Is this supposed to be a table? I have edited it above if so. Or is this the exact desired output? I'll go with the below as I have no further info on this.
 
 date || credit || debit || balance
 14/01/2012 || || 500.00 || 2500.00
