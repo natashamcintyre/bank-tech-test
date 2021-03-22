@@ -7,14 +7,14 @@
 
 Clone this repository and then run
 ```
-cd bank-tech-test
-bundle install
+$ cd bank-tech-test
+$ bundle install
 ```
 
 ## Usage
 For use in the console, eg irb. In the directory bank-tech-test:
 ```
-[bank-tech-test]$ irb -r './lib/account.rb'
+$ irb -r './lib/account.rb'
 2.7.0 :001 > my_account = Account.new
 ```
 Make deposits and withdrawals using .deposit(amount, date) or .withdraw(amount, date)
