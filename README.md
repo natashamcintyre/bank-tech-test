@@ -64,4 +64,4 @@ Self-assessment\
 Once you have completed the challenge and feel happy with your solution, here's a form to help you reflect on the quality of your code: https://docs.google.com/forms/d/1Q-NnqVObbGLDHxlvbUfeAC7yBCf3eCjTmz6GOqC9Aeo/edit
 
 ## The Challenge
-Please see the Wiki pages for details about my approach to solving the problem, the feedback I received and my next steps
+Please see the [Wiki](https://github.com/natashamcintyre/bank-tech-test/wiki) pages for details about my [approach to solving the problem](https://github.com/natashamcintyre/bank-tech-test/wiki/My-approach-to-the-problem), the [feedback](https://github.com/natashamcintyre/bank-tech-test/wiki/Feedback) I received and my next steps
